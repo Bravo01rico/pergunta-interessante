@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Pergunta Importante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            background-color: #151515;
+            color: #ffffff;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            width: 100px;
+            height: 50px;
+        }
+        div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 50px;
+            gap: 10px;
+        }
+        p {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cool No Próximo Ring?</h1>
+    <div id="buttonContainer">
+        <button class="btn" id="btnSim" style="background: #4CAF50; color: white;">Sim</button>
+        <button class="btn" id="btnNao" style="background: #f44336; color: white;">Não</button>
+    </div>
+    <p id="resposta">Eu sabia que você diria sim! 😏</p>
+
+    <script>
+        const btnNao = document.getElementById("btnNao");
+        const btnSim = document.getElementById("btnSim");
+        const resposta = document.getElementById("resposta");
+
+        function moverBotao() {
+            btnNao.style.position = "absolute";
+            const x = Math.random() * (window.innerWidth - btnNao.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btnNao.offsetHeight);
+            btnNao.style.left = `${x}px`;
+            btnNao.style.top = `${y}px`;
+        }
+
+        btnNao.addEventListener("mouseover", moverBotao);
+        btnNao.addEventListener("click", moverBotao);
+
+        btnSim.addEventListener("click", () => {
+            resposta.style.display = "block";
+        });
+    </script>
+</body>
+</html>
